@@ -10,13 +10,19 @@ function Footer() {
     return (
         <footer className="fixed-bottom">
             <div className="">
-                <Link className=" btn bg-success text-white mx-2">
+                <Link href="/" className=" btn bg-success text-white mx-2">
                     <FontAwesomeIcon icon={faHome} />
                 </Link>
-                <Link className=" btn bg-warning text-white mx-2">
+                <Link
+                    href="/new-post"
+                    className=" btn bg-warning text-white mx-2"
+                >
                     <FontAwesomeIcon icon={faPlus} />
                 </Link>
-                <Link className=" btn bg-secondary text-white mx-2">
+                <Link
+                    href="/profile"
+                    className=" btn bg-secondary text-white mx-2"
+                >
                     <FontAwesomeIcon icon={faUserCircle} />
                 </Link>
             </div>

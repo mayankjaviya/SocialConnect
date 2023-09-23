@@ -1,12 +1,14 @@
 import React from "react";
 import Navbar from "./navbar";
+import Footer from "./Footer";
+import "../../../css/app.css";
 
 const app = ({ children }) => {
-    console.log(children);
     return (
         <div>
             <Navbar />
-            <div>{children}</div>
+            <div className="mb-5">{children}</div>
+            <Footer />
         </div>
     );
 };

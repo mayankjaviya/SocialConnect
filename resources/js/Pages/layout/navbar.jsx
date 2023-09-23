@@ -26,26 +26,7 @@ const navbar = (props) => {
                         className="collapse navbar-collapse"
                         id="navbarSupportedContent"
                     >
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <Link
-                                    aria-current="page"
-                                    href="/"
-                                    className="nav-link text-decoration-none text-white"
-                                >
-                                    Welcome
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link
-                                    aria-current="page"
-                                    href="/profile"
-                                    className="nav-link text-white"
-                                >
-                                    Profile
-                                </Link>
-                            </li>
-                        </ul>
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
                         <div className="d-flex">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li className="nav-item dropdown">

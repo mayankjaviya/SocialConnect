@@ -5,13 +5,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { usePage } from "@inertiajs/react";
 import React from "react";
 
-function ProfileHeader() {
-    const { auth } = usePage().props;
+function ProfileHeader(props) {
+    const { auth, posts_count } = usePage().props;
+
     return (
         <header className="profile-header">
             {/* Profile Picture */}
             <img
-                src="https://wallpaperaccess.com/full/138728.jpg"
+                src={auth.user_profile}
                 alt="Profile Picture"
                 className="profile-picture"
             />
@@ -27,7 +28,7 @@ function ProfileHeader() {
                         <div className="card">
                             <div className="card-body">
                                 <h5 className="card-title">Posts</h5>
-                                15
+                                {posts_count}
                             </div>
                         </div>
                     </div>
@@ -35,7 +36,7 @@ function ProfileHeader() {
                         <div className="card">
                             <div className="card-body">
                                 <h5 className="card-title">Followers</h5>
-                                10k
+                                300
                             </div>
                         </div>
                     </div>
@@ -51,10 +52,6 @@ function ProfileHeader() {
                     </div>
                 </div>
             </div>
-            {/* Edit Profile Button */}
-            <button className="btn btn-success edit-profile-button">
-                <FontAwesomeIcon icon={faEdit} />
-            </button>
         </header>
     );
 }
