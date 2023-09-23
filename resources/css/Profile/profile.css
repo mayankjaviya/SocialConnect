@@ -1,0 +1,159 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+    background-color: #fafafa;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.header-logo {
+    font-size: 32px;
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+}
+
+.header-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.header-icons i {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Main Content Styles */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 16px;
+    background-color: #fff;
+}
+
+/* Profile Section Styles */
+.profile-section {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 16px;
+}
+
+.profile-username {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Post Styles */
+.post {
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.post-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 16px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+/* Buttons */
+.button {
+    padding: 8px 16px;
+    background-color: #0095f6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Add more specific styles for comments, likes, and other features as needed */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.gallery {
+    column-count: 4;
+    --webkit-column-count: 4;
+    --moz-column-count: 4;
+    gap: 1rem;
+    padding: 4rem;
+}
+
+.image img {
+    height: auto;
+    width: 100%;
+}
+
+/* Responsive-ness for different screen-sizes */
+@media screen and (max-width: 810px) {
+    .gallery {
+        column-count: 3;
+        --webkit-column-count: 3;
+        --moz-column-count: 3;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .gallery {
+        column-count: 2;
+        --webkit-column-count: 2;
+        --moz-column-count: 2;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .gallery {
+        column-count: 1;
+        --webkit-column-count: 1;
+        --moz-column-count: 1;
+    }
+}
+
+footer {
+    background-color: transparent;
+    border: none;
+    color: #007bff; /* Change the text color to your preferred color */
+}
+
+footer .btn {
+    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.2); /* Adjust shadow properties as needed */
+}
