@@ -3,7 +3,7 @@ import React from "react";
 
 const navbar = (props) => {
     const { users, auth } = usePage().props;
-    console.log(users);
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-success">

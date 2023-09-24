@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -27,7 +28,7 @@ class User extends Authenticatable implements HasMedia
 
     const USER_PROFILE_IMAGE = 'user_profile';
 
-    protected $appends = ['user_profile'];
+    protected $appends = ['user_profile','is_followed'];
 
     public function getUserProfileAttribute(){
         /** @var Media $media */
@@ -58,4 +59,16 @@ class User extends Authenticatable implements HasMedia
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function follower(){
+        return $this->hasMany(UserFollow::class,'follow_to');
+    }
+
+    public function following(){
+        return $this->hasMany(UserFollow::class,'followed_by');
+    }
+
+    public function getIsFollowedAttribute(){
+        return UserFollow::where('follow_to',$this->id)->where('followed_by',Auth::id())->exists();
+    }
 }

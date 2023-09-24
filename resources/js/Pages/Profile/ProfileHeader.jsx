@@ -6,7 +6,8 @@ import { usePage } from "@inertiajs/react";
 import React from "react";
 
 function ProfileHeader(props) {
-    const { auth, posts_count } = usePage().props;
+    const { auth, totalPosts, totalFollowers, totalFollowings } =
+        usePage().props;
 
     return (
         <header className="profile-header">
@@ -28,7 +29,7 @@ function ProfileHeader(props) {
                         <div className="card">
                             <div className="card-body">
                                 <h5 className="card-title">Posts</h5>
-                                {posts_count}
+                                {totalPosts}
                             </div>
                         </div>
                     </div>
@@ -36,7 +37,7 @@ function ProfileHeader(props) {
                         <div className="card">
                             <div className="card-body">
                                 <h5 className="card-title">Followers</h5>
-                                300
+                                {totalFollowers}
                             </div>
                         </div>
                     </div>
@@ -46,7 +47,7 @@ function ProfileHeader(props) {
                         <div className="card">
                             <div className="card-body">
                                 <h5 className="card-title">Following</h5>
-                                100
+                                {totalFollowings}
                             </div>
                         </div>
                     </div>

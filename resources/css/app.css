@@ -3,3 +3,8 @@
 body {
     font-family: "Pacifico", cursive;
 }
+
+.login-dropdown {
+    overflow-y: scroll;
+    max-height: 400px;
+}

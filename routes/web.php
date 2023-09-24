@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserFollowController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,11 +28,15 @@ Route::get('/welcome', function () {
 })->name('home');
 
 Route::group(['middleware' => 'auth'],function (){
+    Route::get('/profile',[PostController::class,'myProfile'])->name('my-profile.index');
+
     Route::get('/',[PostController::class,'feed'])->name('feed.index');
-    Route::get('/profile',[PostController::class,'myProfile'])->name('my-profile.index');
-    Route::get('/profile',[PostController::class,'myProfile'])->name('my-profile.index');
+
     Route::get('/new-post',[PostController::class,'myNewPost'])->name('posts.create');
     Route::post('/new-post',[PostController::class,'storeNewPost'])->name('posts.store');
+    Route::post('/like-post',[PostController::class,'likePost'])->name('posts.like');
+
+    Route::post('/follow',[UserFollowController::class,'followUser'])->name('users.follow');
 });
 
 

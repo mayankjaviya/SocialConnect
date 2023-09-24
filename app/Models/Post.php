@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
@@ -23,7 +24,7 @@ class Post extends Model implements HasMedia
 
     const POST_COLLECTION = 'post_collection';
 
-    protected $appends = ['post_image'];
+    protected $appends = ['post_image','is_liked'];
 
     public function getPostImageAttribute(){
         /** @var Media $media */
@@ -37,5 +38,13 @@ class Post extends Model implements HasMedia
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function likes(){
+        return $this->hasMany(PostLike::class);
+    }
+
+    public function getIsLikedAttribute(){
+        return $this->likes()->where('user_id', Auth::id())->where('like',true)->exists();
     }
 }
