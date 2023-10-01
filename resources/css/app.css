@@ -8,3 +8,16 @@ body {
     overflow-y: scroll;
     max-height: 400px;
 }
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.main-content {
+    background: linear-gradient(
+        180deg,
+        #19875447,
+        #fafafa
+    ); /* Gradient background */
+    animation: gradientAnimation 15s infinite alternate;
+}

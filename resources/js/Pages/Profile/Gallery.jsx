@@ -6,7 +6,7 @@ import React from "react";
 function Gallery() {
     const { posts } = usePage().props;
     return (
-        <section className="gallery">
+        <section className="gallery pt-0 mt-2">
             {posts &&
                 posts.map((post) => {
                     return (

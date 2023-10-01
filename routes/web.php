@@ -47,3 +47,9 @@ Route::post('login',function (Request $request){
 
     return to_route('my-profile.index');
 })->name('login');
+
+Route::post('logout',function (){
+    Auth::logout();
+
+    return to_route('home');
+})->name('logout');

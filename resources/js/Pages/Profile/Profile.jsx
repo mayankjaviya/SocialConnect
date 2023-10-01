@@ -40,7 +40,7 @@ export default function Profile(props) {
                     Posts
                 </button>
             </div>
-            <div className="tab-content" id="myTabContent">
+            <div className="tab-content mt-2" id="myTabContent">
                 <div
                     className="tab-pane fade show active"
                     id="tab-gallery"
