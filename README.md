@@ -1,55 +1,59 @@
-# inertia-react-scaffold
+# SocialConnect
 
-A boilerplate project that combines Laravel 10 with Inertia.js and React for rapid web application development.
+## 🚀 Overview
 
-## Table of Contents
+SocialConnect is a social media platform powered by Laravel, React, Inertia, and Bootstrap that allows users to connect, share moments, and engage with each other. With features inspired by popular platforms like Instagram, users can follow others, explore a personalized feed, like and comment on posts, and much more.
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
+## 💻 Technologies Used
 
-## Introduction
+-   **Backend:** Laravel
+-   **Frontend:** React, Bootstrap
+-   **State Management:** Inertia.js
 
-The inertia-react-scaffold is a powerful starting point for building dynamic web applications using Laravel 10, Inertia.js, React, and Vite. This boilerplate combines the best of both worlds: the robust backend capabilities of Laravel and the efficient, client-side interactivity of React, all while benefiting from the lightning-fast asset compilation provided by Vite.
+## ✨ Features
 
-Whether you're a seasoned developer looking to streamline your workflow or a newcomer seeking a solid foundation for your web project, this boilerplate offers an array of features and a clean, well-structured codebase to accelerate your development journey. Get started quickly, customize to your heart's content, and build outstanding web applications with confidence.
+-   **User Authentication:** Secure user authentication system to protect user accounts.
+-   **Follow Functionality:** Users can follow/unfollow other users to stay updated with their posts.
+-   **Feed:** Personalized feed displaying posts from followed users.
+-   **Post Interactions:** Like, comment, and share posts with ease.
+-   **Responsive Design:** A seamless experience across various devices.
 
-## Features
-
-- **Laravel 10 Integration:** Built on top of Laravel 10.
-- **Inertia.js and React:** Harness the power of Inertia.js and React for building modern, dynamic, and single-page applications with minimal client-side complexity.
-- **Vite Asset Compilation:** Utilize Vite, a fast and efficient build tool, to compile your JavaScript and CSS assets. Vite offers rapid development and hot module replacement for an enhanced development experience.
-- **Routing and Navigation:** Inertia.js allows for smooth client-side navigation without full-page reloads. You can easily define routes and handle navigation on the front end.
-- **Sample Page and Component:** Get started quickly with sample pages and components to demonstrate how to build various parts of your application.
-
-## Prerequisites
-
-- PHP (version 8.1 or higher)
-- Composer
-- Node.js and npm
-- Laravel 10
-
-## Getting Started
+## 🔧 Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/Mynk001/inertia-react-scaffold.git
+git clone https://github.com/Mayank-Javiya/SocialConnect.git
 
-# Change into the project directory
-cd your-project
+# Navigate to the project directory
+cd SocialConnect
 
-# Install PHP dependencies
+# Install Backend and Frontend Dependencies
 composer install
-
-# Install JavaScript dependencies
 npm install
 
-# Compile assets
-npm run dev
+# Set up environment variables
+cp .env.example .env
 
-# Start the development server
+# Update the .env file with your configuration
+
+# Run Migrations and Seed the Database
+php artisan migrate --seed
+
+# Start the Development Server
 php artisan serve
 ```
 
-Take advantage of this boilerplate's comprehensive toolset and create web applications that are both feature-rich and efficient. Welcome to a faster, smoother, and more enjoyable development experience!
+Your app will be accessible at http://localhost:8000.
+
+## ❤️ Acknowledgements
+
+-   Thanks to the Laravel, React, and Bootstrap communities.
+-   Inspiration from Instagram and other social media platforms.
+
+## 📬 Contact
+
+For any inquiries or issues, please contact Mayank at mynk3120@gmail.com.
+
+## 🚧 Note:
+
+SocialConnect is currently in progress. Feel free to contribute and help shape its development!
