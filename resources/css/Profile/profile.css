@@ -14,12 +14,8 @@ body {
 
 /* Header Styles */
 header {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 16px;
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
 }
 
 .header-logo {
@@ -156,4 +152,17 @@ footer {
 
 footer .btn {
     box-shadow: 0 8px 4px rgba(0, 0, 0, 0.2); /* Adjust shadow properties as needed */
+}
+
+.profile-nav .nav-link {
+    color: #6c757d;
+}
+
+.profile-header .profile-card {
+    border-radius: 15px;
+}
+
+.profile .tab-content {
+    overflow-x: hidden;
+    max-height: 71vh;
 }

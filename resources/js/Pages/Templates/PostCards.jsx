@@ -8,7 +8,7 @@ import { faHeart, faWifi, faWifi3 } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 
 const PostCards = (props) => {
-    const { posts, followUser, myPost } = props;
+    const { posts, followUser } = props;
     const { auth } = usePage().props;
 
     const handleLike = (postId, is_liked) => {
@@ -36,7 +36,7 @@ const PostCards = (props) => {
                                     <span className="fw-bold">
                                         {post.user.name}
                                     </span>
-                                    {!myPost && post.user.id != auth.id && (
+                                    {post.user.id != auth.id && (
                                         <span
                                             role="button"
                                             onClick={() =>
@@ -95,8 +95,8 @@ const PostCards = (props) => {
                                 10
                             </h5>
                         </div>
-                        <div className="post-caption my-3">
-                            <span className="fw-bold me-3 ms-2">
+                        <div className="post-caption my-3 mx-2">
+                            <span className="fw-bold me-3">
                                 {post.user.name}:
                             </span>
                             {post.caption}

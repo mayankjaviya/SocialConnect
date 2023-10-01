@@ -10,44 +10,45 @@ function ProfileHeader(props) {
         usePage().props;
 
     return (
-        <header className="profile-header">
-            {/* Profile Picture */}
-            <img
-                src={auth.user_profile}
-                alt="Profile Picture"
-                className="profile-picture"
-            />
-
+        <header className="profile-header d-lg-flex justify-content-center">
+            <div className="col-lg-4 mb-2 mb-lg-0 d-flex align-items-center">
+                {/* Profile Picture */}
+                <img
+                    src={auth.user_profile}
+                    alt="Profile Picture"
+                    className="profile-picture"
+                />
+                <div className="flex-column text-center">
+                    <h3 className="align-middle">{auth.name}</h3>
+                    <span className="text-muted">{auth.email}</span>
+                </div>
+            </div>
             {/* Profile Username */}
             <div className="container">
-                <div className="row">
-                    {/* Follower Section */}
-                    <div className="col-md-3 mb-2 mb-md-0 d-flex align-items-center">
-                        <h3 className="align-middle">{auth.name}</h3>
-                    </div>
-                    <div className="col-md-3 mb-2 mb-md-0">
-                        <div className="card">
-                            <div className="card-body">
-                                <h5 className="card-title">Posts</h5>
-                                {totalPosts}
+                <div className="row align-items-center">
+                    <div className="col-lg-4 mb-2 mb-lg-0">
+                        <div className="card profile-card py-3">
+                            <div className="card-body d-flex justify-content-between">
+                                <h4 className="card-title mb-0">Posts</h4>
+                                <h5 className="mb-0">{totalPosts}</h5>
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-3 mb-2 mb-md-0">
-                        <div className="card">
-                            <div className="card-body">
-                                <h5 className="card-title">Followers</h5>
-                                {totalFollowers}
+                    <div className="col-lg-4 mb-2 mb-lg-0">
+                        <div className="card profile-card py-3">
+                            <div className="card-body d-flex justify-content-between">
+                                <h4 className="card-title mb-0">Followers</h4>
+                                <h5 className="mb-0">{totalFollowers}</h5>
                             </div>
                         </div>
                     </div>
 
                     {/* Following Section */}
-                    <div className="col-md-3 mb-2 mb-md-0">
-                        <div className="card">
-                            <div className="card-body">
-                                <h5 className="card-title">Following</h5>
-                                {totalFollowings}
+                    <div className="col-lg-4 mb-2 mb-lg-0">
+                        <div className="card profile-card py-3">
+                            <div className="card-body d-flex justify-content-between">
+                                <h4 className="card-title mb-0">Following</h4>
+                                <h5 className="mb-0">{totalFollowings}</h5>
                             </div>
                         </div>
                     </div>

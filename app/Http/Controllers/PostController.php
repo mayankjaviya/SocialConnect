@@ -26,7 +26,9 @@ class PostController extends Controller
     }
 
     public function myProfile(){
-        $posts = Post::withCount('likes')->where('user_id',Auth::id())->get();
+        $posts = Post::with('user')->withCount(['likes' => function($query){
+            $query->where('like',true);
+        }])->where('user_id',Auth::id())->orderBy('id','desc')->get();
         $totalPosts = $posts->count();
         $totalFollowings = UserFollow::where('followed_by',Auth::id())->count();
         $totalFollowers = UserFollow::where('follow_to',Auth::id())->count();
@@ -68,6 +70,6 @@ class PostController extends Controller
             ]
         );
 
-        return to_route('feed.index');
+        return redirect()->back();
     }
 }
