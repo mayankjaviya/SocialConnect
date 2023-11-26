@@ -3,7 +3,9 @@
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserFollowController;
 use App\Models\User;
+use App\Models\UserFollow;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -23,9 +25,13 @@ use Inertia\Inertia;
 //     return view('welcome');
 // });
 
-Route::get('/welcome', function () {
-   return Inertia::render('Welcome');
+Route::get('/login', function () {
+   return Inertia::render('Login');
 })->name('home');
+
+Route::get('/register', function () {
+   return Inertia::render('Register');
+})->name('register');
 
 Route::group(['middleware' => 'auth'],function (){
     Route::get('/profile',[PostController::class,'myProfile'])->name('my-profile.index');
@@ -42,11 +48,49 @@ Route::group(['middleware' => 'auth'],function (){
 
 
 Route::post('login',function (Request $request){
-    $user = User::find($request->get('id'));
-    Auth::login($user);
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required'
+    ]);
+
+    $credentials = $request->only('email', 'password');
+
+    if (Auth::attempt($credentials)) {
+        return to_route('my-profile.index');
+    }
+
+})->name('login');
+
+
+Route::post('register',function (Request $request){
+    $input = $request->all();
+
+    $request->validate([
+        'name' => 'required',
+        'username' => 'required|unique:users',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|min:8|same:password_confirmation'
+    ]);
+
+    $createdUser = User::create([
+        'name' => $input['name'],
+        'username' => $input['username'],
+        'email' => $input['email'],
+        'password' => bcrypt($input['password'])
+    ]);
+
+    $image = Arr::random(getRandomProfileImage());
+
+    $createdUser->addMediaFromUrl($image)->toMediaCollection(User::USER_PROFILE_IMAGE);
+
+    UserFollow::Create(['followed_by' => $createdUser->id,'follow_to'=>1]);
+
+    Auth::login($createdUser);
 
     return to_route('my-profile.index');
-})->name('login');
+});
+
+
 
 Route::post('logout',function (){
     Auth::logout();

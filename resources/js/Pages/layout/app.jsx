@@ -7,10 +7,9 @@ import AuthNavbar from "./AuthNavbar";
 
 const app = ({ children }) => {
     const { auth } = usePage().props;
-    console.log(auth);
     return (
         <div className="vh-100 main-content">
-            {!auth ? <Navbar /> : <AuthNavbar auth={auth} />}
+            {auth && <AuthNavbar auth={auth} />}
 
             <div className="">{children}</div>
             {auth && <Footer />}

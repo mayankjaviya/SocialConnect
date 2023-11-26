@@ -27,7 +27,7 @@ export default function AuthNavbar({ auth }) {
                                     <img
                                         src={auth.user_profile}
                                         alt=""
-                                        srcset=""
+                                        srcSet=""
                                         height="30px"
                                         className="rounded-circle"
                                     />

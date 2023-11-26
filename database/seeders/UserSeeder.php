@@ -578,34 +578,7 @@ class UserSeeder extends Seeder
 
         ];
 
-        $images = [
-            'https://e1.pxfuel.com/desktop-wallpaper/511/145/desktop-wallpaper-instagram-cartoon-vintage-cartoon-cartoon-profile-funny-profile.jpg',
-            'https://img.freepik.com/premium-vector/happy-girl-avatar-funny-child-profile-picture-isolated-white-background_176411-3188.jpg?w=2000',
-            'https://i.pinimg.com/originals/e5/7b/ef/e57bef8aef072f7facbc7b18a59f14d9.png',
-            'https://i.pinimg.com/564x/06/28/00/062800be04ccbf37243edfb562e477f1.jpg',
-            'https://i.pinimg.com/736x/f8/3a/b3/f83ab360b56164444d4a529e05cace26.jpg',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSho38RJ7UiNvxtDg_8h9IjI5OHZbnKmDG713-Ku8iUVsW-2XhJxE3RvtTw7rUKAWgQS30&usqp=CAU',
-            'https://i.pinimg.com/474x/53/63/53/53635375bf2beb1c1663366259b0b435.jpg',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKFH2N8-7ahQ8AahfauMyDj9CSel4AgJ5WTtD51zvHGMK9ZfilGJ9MUq-xUK5WohfxJcA&usqp=CAU',
-            'https://e0.pxfuel.com/wallpapers/362/113/desktop-wallpaper-cute-cartoon-characters-funny-aesthetic-profile-depressing-aesthetic-of-cartoons.jpg',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCoR20NP68hOGXQ0BdcAr3Eih9vuenAFt2iBoRLqus_YwUksNXjSp5tM7jlJ2r7-Mk6iA&usqp=CAU',
-            'https://i.pinimg.com/474x/06/20/94/062094c7152758596a591fc0e81f8e1b.jpg',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6v-B8_K3mfEyRFSaSi4s9XgaIknmxkcccsg&usqp=CAU',
-            'https://i.pinimg.com/474x/d4/10/7e/d4107e789224ea8a9242e6104f8d534d.jpg',
-            'https://i.pinimg.com/474x/ea/3a/a3/ea3aa34b679f858c74c2efa060d75ce5.jpg',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZDuBx_rpYNDrobgZJWfT_onDhCZ3-678ucw&usqp=CAU',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAeZcn8gtHE3vQZbBa256orsc8upZa5QjNu3u-91v2XH6YRiycG9N2wBcfuySEOBaji1k&usqp=CAU',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVP1kbHj5H7wAidoPCMMuKwq82bT097VIshJ9qMdl_RZqopNa-i7qaIXi3_Z3uSRrtVAs&usqp=CAU',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsq1sjHAesd4a9IahUM1cbyTyKjJoURVVNyJCjlNliMntXjin0Uv_yQy5G02Zmb0l445k&usqp=CAU',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbFA734ne9i3I9F3oESVC3QzPapQBiyuSIdQJRGN--AxwKWrDJbX41cJeBbebRco3_WvM&usqp=CAU',
-            'https://i.pinimg.com/1200x/2c/c4/cb/2cc4cb9b8ee4371bf894a891071481aa.jpg',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE2LKAfCeydS1lf_gqGsqiWb5WwVFODINWqW-zfcF9F4GeuDVRx-blfC1ed5K6JsFu98U&usqp=CAU',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM-3F3Jx8p7OoEjDz1JAJWWzklh8JkxOWRAjEqoc3LonPqB5QdxJkod6yx3B_Xcv_XsI0&usqp=CAU',
-            'https://i.pinimg.com/736x/b8/f7/99/b8f799647e6e07f20a60a75d73eb8e9a.jpg',
-            'https://i.pinimg.com/originals/fe/13/1d/fe131d9935b8e4ad3401bea9ea87e5b4.jpg',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXqEd6w9XZ580aB9TVU09kt11SFzCP4tK_WxBUH8dp22R38hoEGeJFbro5pTca1RhrzPI&usqp=CAU',
-            'https://i.pinimg.com/474x/05/d5/59/05d559f339c5cd2eb486e4259491a739.jpg',
-        ];
+        $images = getRandomProfileImage();
 
         foreach ($users as $key => $user) {
             $inputArray = Arr::only($user,['name','email','password']);
