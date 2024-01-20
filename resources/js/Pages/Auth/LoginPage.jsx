@@ -16,7 +16,7 @@ const LoginPage = () => {
     return (
         <div className="container d-flex justify-content-center">
             <div className="card col-md-6 p-4 rounded-3">
-                <h2 className="text-center mb-4">Login to InertiaChat</h2>
+                <h2 className="text-center mb-4">Login to SocialConnect</h2>
                 <form>
                     <div className="mb-3">
                         <label htmlFor="email" className="form-label">
