@@ -4,6 +4,9 @@
 
 SocialConnect is a social media platform powered by Laravel, React, Inertia, and Bootstrap that allows users to connect, share moments, and engage with each other. With features inspired by popular platforms like Instagram, users can follow others, explore a personalized feed, like and comment on posts, and much more.
 
+![Project Screenshot](https://raw.githubusercontent.com/Mayank-Javiya/SocialConnect/main/public/images/Screenshot.png)
+![Project Screenshot](https://raw.githubusercontent.com/Mayank-Javiya/SocialConnect/main/public/images/Screenshot2.png)
+
 ## 💻 Technologies Used
 
 -   **Backend:** Laravel
