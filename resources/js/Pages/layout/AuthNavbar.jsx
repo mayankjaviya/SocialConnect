@@ -10,7 +10,7 @@ export default function AuthNavbar({ auth }) {
                 <div className="row align-items-center justify-content-between">
                     <div className="col">
                         <h4 className="text-light text-center mb-0">
-                            InertiaChat
+                        SocialConnect
                         </h4>
                     </div>
                     <div role="button" className="col-auto">
