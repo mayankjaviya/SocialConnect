@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\PostLike;
+use App\Models\PostAction;
 use App\Models\UserFollow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -16,7 +16,7 @@ class PostController extends Controller
     public function feed(){
         $posts = Post::with('user')
         ->withCount(['likes' => function($query){
-                $query->where('like',true);
+                $query->where('action_value',true);
             }])
         ->orderBy('id','desc')
         ->get()
@@ -25,21 +25,6 @@ class PostController extends Controller
         return Inertia::render('Feed/Feed',['posts' => $posts]);
     }
 
-    public function myProfile(){
-        $posts = Post::with('user')->withCount(['likes' => function($query){
-            $query->where('like',true);
-        }])->where('user_id',Auth::id())->orderBy('id','desc')->get();
-        $totalPosts = $posts->count();
-        $totalFollowings = UserFollow::where('followed_by',Auth::id())->count();
-        $totalFollowers = UserFollow::where('follow_to',Auth::id())->count();
-
-        return Inertia::render('Profile/Profile',[
-            'posts' => $posts,
-            'totalPosts' => $totalPosts,
-            'totalFollowers' => $totalFollowers,
-            'totalFollowings' => $totalFollowings
-        ]);
-    }
 
     public function myNewPost(){
 
@@ -61,12 +46,13 @@ class PostController extends Controller
     public function likePost(Request $request){
         $input = $request->all();
 
-        PostLike::updateOrCreate(
+        PostAction::updateOrCreate(
             [
                 'post_id' => $input['post_id'],
-                'user_id' => Auth::id()
+                'user_id' => Auth::id(),
+                'action_type' => 1,
             ],[
-                'like' => $input['like'],
+                'action_value' => $input['like'],
             ]
         );
 

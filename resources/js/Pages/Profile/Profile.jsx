@@ -11,12 +11,12 @@ export default function Profile(props) {
         <div className="profile">
             <ProfileHeader />
             <div
-                className="nav nav-tabs justify-content-center profile-nav"
+                className="nav nav-tabs justify-content-center profile-nav border-bottom border-white"
                 id="nav-tab"
                 role="tablist"
             >
                 <button
-                    className="nav-link active"
+                    className="nav-link active rounded-0 rounded-top "
                     id="nav-home-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#tab-gallery"
@@ -28,7 +28,7 @@ export default function Profile(props) {
                     Gallery
                 </button>
                 <button
-                    className="nav-link"
+                    className="nav-link  rounded-0 rounded-top"
                     id="nav-profile-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#tab-posts"

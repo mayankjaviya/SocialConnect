@@ -30,7 +30,9 @@ const PostCards = (props) => {
                                     src={post.user.user_profile}
                                     alt=""
                                     height="35px"
+                                    width="35px"
                                     className="rounded-circle me-2"
+                                    style={{ objectFit: "cover" }}
                                 />
                                 <div>
                                     <span className="fw-bold">

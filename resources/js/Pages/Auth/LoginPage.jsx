@@ -3,10 +3,14 @@ import "../../../css/Auth/Login.css";
 import { Link, useForm, usePage } from "@inertiajs/react";
 
 const LoginPage = () => {
+
+    const { props } = usePage();
     const { data, setData, post, processing, errors, reset } = useForm({
         email: "",
         password: "",
     });
+
+    console.log(props.errors);
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -17,6 +21,11 @@ const LoginPage = () => {
         <div className="container d-flex justify-content-center">
             <div className="card col-md-6 p-4 rounded-3">
                 <h2 className="text-center mb-4">Login to SocialConnect</h2>
+                {Object.values(props.errors).map((value) => (
+                    <span className="alert alert-danger">
+                        <span>{value}</span>
+                    </span>
+                ))}
                 <form>
                     <div className="mb-3">
                         <label htmlFor="email" className="form-label">
@@ -30,7 +39,6 @@ const LoginPage = () => {
                             value={data.email}
                             onChange={(e) => setData("email", e.target.value)}
                         />
-                        <p className="text-danger">{errors.email}</p>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="password" className="form-label">
@@ -46,7 +54,6 @@ const LoginPage = () => {
                                 setData("password", e.target.value)
                             }
                         />
-                        <p className="text-danger">{errors.password}</p>
                     </div>
                     <button
                         type="submit"

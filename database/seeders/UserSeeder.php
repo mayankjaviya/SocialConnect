@@ -582,7 +582,7 @@ class UserSeeder extends Seeder
 
         foreach ($users as $key => $user) {
             $inputArray = Arr::only($user,['name','email','password']);
-            $createdUser = User::firstOrCreate(['name' => $user['name']],$inputArray);
+            $createdUser = User::firstOrCreate(['email' => $user['email']],$inputArray);
             if(!$createdUser->hasMedia(User::USER_PROFILE_IMAGE)){
                 if(isset($user['image'])){
                     $createdUser->addMediaFromUrl($user['image'])->toMediaCollection(User::USER_PROFILE_IMAGE);

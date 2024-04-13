@@ -10,7 +10,7 @@ export default function AuthNavbar({ auth }) {
                 <div className="row align-items-center justify-content-between">
                     <div className="col">
                         <h4 className="text-light text-center mb-0">
-                        SocialConnect
+                            SocialConnect
                         </h4>
                     </div>
                     <div role="button" className="col-auto">
@@ -28,8 +28,10 @@ export default function AuthNavbar({ auth }) {
                                         src={auth.user_profile}
                                         alt=""
                                         srcSet=""
-                                        height="30px"
+                                        height="30"
+                                        width="30"
                                         className="rounded-circle"
+                                        style={{ objectFit: "cover" }}
                                     />
                                 </a>
                                 <ul
@@ -38,7 +40,10 @@ export default function AuthNavbar({ auth }) {
                                     style={{ left: "unset", right: 0 }}
                                 >
                                     <li>
-                                        <Link className="dropdown-item">
+                                        <Link
+                                            className="dropdown-item"
+                                            href="/edit-profile"
+                                        >
                                             Edit Profile
                                         </Link>
                                     </li>

@@ -41,10 +41,10 @@ class Post extends Model implements HasMedia
     }
 
     public function likes(){
-        return $this->hasMany(PostLike::class);
+        return $this->hasMany(PostAction::class)->where('action_type',1);
     }
 
     public function getIsLikedAttribute(){
-        return $this->likes()->where('user_id', Auth::id())->where('like',true)->exists();
+        return $this->likes()->where('user_id', Auth::id())->where('action_value',true)->exists();
     }
 }

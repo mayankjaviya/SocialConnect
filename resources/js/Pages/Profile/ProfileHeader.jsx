@@ -10,49 +10,61 @@ function ProfileHeader(props) {
         usePage().props;
 
     return (
-        <header className="profile-header d-lg-flex justify-content-center">
-            <div className="col-lg-4 mb-2 mb-lg-0 d-flex align-items-center">
-                {/* Profile Picture */}
-                <img
-                    src={auth.user_profile}
-                    alt="Profile Picture"
-                    className="profile-picture"
-                />
-                <div className="flex-column text-center">
-                    <h3 className="align-middle">{auth.name}</h3>
-                    <span className="text-muted">{auth.email}</span>
+        <header className="">
+            <div className="profile-header d-lg-flex justify-content-center">
+                <div className="col-lg-4 mb-2 mb-lg-0 d-flex align-items-center">
+                    {/* Profile Picture */}
+                    <img
+                        src={auth.user_profile}
+                        alt="Profile Picture"
+                        className="profile-picture"
+                    />
+                    <div className="flex-column text-center">
+                        <h3 className="align-middle">{auth.name}</h3>
+                        <span className="text-muted">{auth.email}</span>
+                    </div>
+                </div>
+                {/* Profile Username */}
+                <div className="container">
+                    <div className="row align-items-center">
+                        <div className="col-lg-4 mb-2 mb-lg-0">
+                            <div className="card profile-card py-3">
+                                <div className="card-body d-flex justify-content-between">
+                                    <h4 className="card-title mb-0">Posts</h4>
+                                    <h5 className="mb-0">{totalPosts}</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 mb-2 mb-lg-0">
+                            <div className="card profile-card py-3">
+                                <div className="card-body d-flex justify-content-between">
+                                    <h4 className="card-title mb-0">
+                                        Followers
+                                    </h4>
+                                    <h5 className="mb-0">{totalFollowers}</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Following Section */}
+                        <div className="col-lg-4 mb-2 mb-lg-0">
+                            <div className="card profile-card py-3">
+                                <div className="card-body d-flex justify-content-between">
+                                    <h4 className="card-title mb-0">
+                                        Following
+                                    </h4>
+                                    <h5 className="mb-0">{totalFollowings}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            {/* Profile Username */}
-            <div className="container">
-                <div className="row align-items-center">
-                    <div className="col-lg-4 mb-2 mb-lg-0">
-                        <div className="card profile-card py-3">
-                            <div className="card-body d-flex justify-content-between">
-                                <h4 className="card-title mb-0">Posts</h4>
-                                <h5 className="mb-0">{totalPosts}</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-lg-4 mb-2 mb-lg-0">
-                        <div className="card profile-card py-3">
-                            <div className="card-body d-flex justify-content-between">
-                                <h4 className="card-title mb-0">Followers</h4>
-                                <h5 className="mb-0">{totalFollowers}</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Following Section */}
-                    <div className="col-lg-4 mb-2 mb-lg-0">
-                        <div className="card profile-card py-3">
-                            <div className="card-body d-flex justify-content-between">
-                                <h4 className="card-title mb-0">Following</h4>
-                                <h5 className="mb-0">{totalFollowings}</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div className="row mt-4">
+                <h5>{auth.username}</h5>
+                <h6 style={{ whiteSpace: "pre-line", lineHeight: 1.5 }}>
+                    {auth.bio}
+                </h6>
             </div>
         </header>
     );

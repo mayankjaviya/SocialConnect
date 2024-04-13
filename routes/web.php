@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserFollowController;
 use App\Models\User;
 use App\Models\UserFollow;
@@ -34,7 +35,7 @@ Route::get('/register', function () {
 })->name('register');
 
 Route::group(['middleware' => 'auth'],function (){
-    Route::get('/profile',[PostController::class,'myProfile'])->name('my-profile.index');
+    Route::get('/profile',[ProfileController::class,'myProfile'])->name('my-profile.index');
 
     Route::get('/',[PostController::class,'feed'])->name('feed.index');
 
@@ -47,19 +48,7 @@ Route::group(['middleware' => 'auth'],function (){
 
 
 
-Route::post('login',function (Request $request){
-    $request->validate([
-        'email' => 'required|email',
-        'password' => 'required'
-    ]);
-
-    $credentials = $request->only('email', 'password');
-
-    if (Auth::attempt($credentials)) {
-        return to_route('my-profile.index');
-    }
-
-})->name('login');
+Route::post('login',[ProfileController::class,'login'])->name('login');
 
 
 Route::post('register',function (Request $request){
@@ -90,10 +79,7 @@ Route::post('register',function (Request $request){
     return to_route('my-profile.index');
 });
 
+Route::get('edit-profile',[ProfileController::class,'editProfile'])->name('profile.edit');
+Route::post('edit-profile',[ProfileController::class,'updateProfile'])->name('profile.update');
 
-
-Route::post('logout',function (){
-    Auth::logout();
-
-    return to_route('home');
-})->name('logout');
+Route::post('logout',[ProfileController::class,'logout'])->name('logout');
